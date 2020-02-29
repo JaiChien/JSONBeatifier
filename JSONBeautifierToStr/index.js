@@ -9,16 +9,18 @@
 				return '"'+d+'",'
 			}else if(Array.isArray(d)){
 				let str = "["
-				for(let k in d){
-					str+='\n'
+				if(d.length>0){
+		          for(let k in d){
+		            str+='\n'
 
-					for(let i=0;i<depNow;++i){
-						str+='\t'
-					}
+		            for(let i=0;i<depNow;++i){
+		              str+='\t'
+		            }
 
-					str+=obj(d[k],depNow)
-				}
-				str=str.slice(0,(str.length-1))
+		            str+=obj(d[k],depNow)
+		          }
+		          str=str.slice(0,(str.length-1))
+		        }
 				str+='\n'
 				
 				for(let i=0;i<dep;++i){
