@@ -31,7 +31,9 @@
 				return str
 			}else{
 				let str = "{"
+				let hasOjbect = false;
 				for(let k in d){
+					hasOjbect = true;
 					str+='\n'
 
 					for(let i=0;i<depNow;++i){
@@ -40,7 +42,9 @@
 
 					str+='"'+k+'":'+obj(d[k],depNow)
 				}
-				str=str.slice(0,(str.length-1))
+				if(hasOjbect){
+					str=str.slice(0,(str.length-1))
+				}
 				str+='\n'
 				
 				for(let i=0;i<dep;++i){
