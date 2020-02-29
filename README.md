@@ -6,5 +6,5 @@
   let jsonBeautifier = require("JSONBeautifierToStr")
   jsonBeautifier({aa:{bb:{cc:"123",dd:{ee:"123}}}})
   ```
-2. 目前只有支援 JSON 最底層為 String 類型才可以正常使用。
+2. 目前只有支援 JSON 最底層為 String/Number/Array 類型可以正常使用。
 
