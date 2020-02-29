@@ -5,8 +5,28 @@
 		let obj =function(d, dep){
 			let depNow = dep+1
 			
-			if(typeof(d)=="string"){
+			if(typeof(d)=="string"||typeof(d)=='number'){
 				return '"'+d+'",'
+			}else if(Array.isArray(d)){
+				let str = "["
+				for(let k in d){
+					str+='\n'
+
+					for(let i=0;i<depNow;++i){
+						str+='\t'
+					}
+
+					str+=obj(d[k],depNow)
+				}
+				str=str.slice(0,(str.length-1))
+				str+='\n'
+				
+				for(let i=0;i<dep;++i){
+					str+='\t'
+				}
+
+				str+="],"
+				return str
 			}else{
 				let str = "{"
 				for(let k in d){
